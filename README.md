@@ -1,24 +1,24 @@
-#define LED_PIN 25
-#define PWM_CHANNEL 0
-#define PWM_FREQ 5000
-#define PWM_RESOLUTION 8   // 8 bits (0–255)
+# Control de LED con PWM usando ESP32
 
-void setup() {
-  ledcSetup(PWM_CHANNEL, PWM_FREQ, PWM_RESOLUTION);
-  ledcAttachPin(LED_PIN, PWM_CHANNEL);
-}
+## Descripción
+Este proyecto implementa el control de la intensidad luminosa de un LED utilizando
+modulación por ancho de pulso (PWM) con una placa ESP32.
 
-void loop() {
-  // Aumenta brillo
-  for (int duty = 0; duty <= 255; duty++) {
-    ledcWrite(PWM_CHANNEL, duty);
-    delay(10);
-  }
+## Objetivo
+Aplicar el uso de señales PWM para el control gradual de un actuador simple,
+reforzando conceptos básicos de electrónica y programación.
 
-  // Disminuye brillo
-  for (int duty = 255; duty >= 0; duty--) {
-    ledcWrite(PWM_CHANNEL, duty);
-    delay(10);
-  }
-}
+## Materiales
+- ESP32
+- LED
+- Resistencia de 220 Ω
+- Cables de conexión
 
+## Funcionamiento
+El ESP32 genera una señal PWM que varía el ciclo de trabajo entre 0 y 255,
+permitiendo aumentar y disminuir progresivamente el brillo del LED.
+
+## Aplicaciones
+- Iluminación regulable
+- Indicadores visuales
+- Sistemas embebidos básicos
